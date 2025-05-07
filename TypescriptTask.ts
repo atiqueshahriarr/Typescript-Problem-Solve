@@ -31,3 +31,18 @@ const books: {title: string; rating: number}[] = [
 
 const rateBooks: {title: string; rating: number}[] = filterByRating(books);
 console.log(rateBooks);
+
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+    const concateArray: T[] = [];
+    for (const array of arrays) {
+        for (const item of array) {
+            concateArray.push(item);
+        }
+    }
+    return concateArray;
+}
+
+const outputConcateArray1 = concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
+const outputConcateArray2 = concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
+console.log(outputConcateArray1);
+console.log(outputConcateArray2);
