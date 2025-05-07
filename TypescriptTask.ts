@@ -7,11 +7,9 @@ function formatString(input: string, toUpper?: boolean): string {
         return convertUpper;
     }
 }
-
-const value1 = formatString("Hello"); // Output: "HELLO"
-const value2 = formatString("Hello", true); // Output: "HELLO"
-const value3 = formatString("Hello", false); // Output: "hello"
-console.log(`${value1}\n${value2}\n${value3}`);
+formatString("Hello");
+formatString("Hello", true);
+formatString("Hello", false);
 
 function filterByRating(items: {title: string; rating: number}[]): {title: string; rating: number}[] {
     let ratingBooks = [];
@@ -22,15 +20,12 @@ function filterByRating(items: {title: string; rating: number}[]): {title: strin
     }
     return ratingBooks;
 }
-
-const books: {title: string; rating: number}[] = [
+const books = [
     {title: "Book A", rating: 4.5},
     {title: "Book B", rating: 3.2},
     {title: "Book C", rating: 5.0},
 ];
-
-const rateBooks: {title: string; rating: number}[] = filterByRating(books);
-console.log(rateBooks);
+filterByRating(books);
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     const concateArray: T[] = [];
@@ -41,11 +36,8 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
     }
     return concateArray;
 }
-
-const outputConcateArray1 = concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
-const outputConcateArray2 = concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
-console.log(outputConcateArray1);
-console.log(outputConcateArray2);
+concatenateArrays(["a", "b"], ["c"]);
+concatenateArrays([1, 2], [3, 4], [5]);
 
 class Vehicle {
     private make: string;
@@ -58,7 +50,6 @@ class Vehicle {
         return `Make: ${this.make}, Year: ${this.year}`;
     }
 }
-
 class Car extends Vehicle {
     private model: string;
     constructor(make: string, year: number, model: string) {
@@ -69,10 +60,9 @@ class Car extends Vehicle {
         return `Model: ${this.model}`;
     }
 }
-
 const myCar = new Car("Toyota", 2020, "Corolla");
-console.log(myCar.getInfo());
-console.log(myCar.getModel());
+myCar.getInfo();
+myCar.getModel();
 
 function processValue(value: string | number): number {
     if (typeof value == "string") {
@@ -83,9 +73,8 @@ function processValue(value: string | number): number {
         return multipliedValue;
     }
 }
-
-console.log(processValue("hello")); // Output: 5
-console.log(processValue(10)); // Output: 20
+processValue("hello");
+processValue(10);
 
 interface Product {
     name: string;
@@ -107,15 +96,12 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
         return products[highestPriceIndx];
     }
 }
-
-const products: Product[] = [
+const products = [
     {name: "Pen", price: 10},
     {name: "Notebook", price: 25},
     {name: "Bag", price: 50},
 ];
-
-console.log(getMostExpensiveProduct(products));
-// Output: { name: "Bag", price: 50 }
+getMostExpensiveProduct(products);
 
 enum Day {
     Monday,
@@ -126,27 +112,26 @@ enum Day {
     Saturday,
     Sunday,
 }
-
 function getDayType(day: Day): string {
-    if (day === 6) {
+    if (day === 5 || day === 6) {
         return "Weekend";
     } else {
         return "Weekday";
     }
 }
-
-console.log(getDayType(Day.Monday));
-console.log(getDayType(Day.Sunday));
+getDayType(Day.Monday);
+getDayType(Day.Sunday);
 
 async function squareAsync(n: number): Promise<number> {
     return new Promise((resolve, reject) => {
         if (n < 0) {
             reject("Error: Negative");
         } else {
-            resolve(n * n);
+            setTimeout(() => {
+                resolve(n * n);
+            }, 1000);
         }
     });
 }
-
 squareAsync(4).then(console.log);
 squareAsync(-3).catch(console.error);
