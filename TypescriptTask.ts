@@ -137,3 +137,16 @@ function getDayType(day: Day): string {
 
 console.log(getDayType(Day.Monday));
 console.log(getDayType(Day.Sunday));
+
+async function squareAsync(n: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+        if (n < 0) {
+            reject("Error: Negative");
+        } else {
+            resolve(n * n);
+        }
+    });
+}
+
+squareAsync(4).then(console.log);
+squareAsync(-3).catch(console.error);
