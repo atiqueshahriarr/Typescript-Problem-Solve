@@ -9,7 +9,7 @@ function formatString(input: string, toUpper?: boolean): string {
 }
 
 function filterByRating(items: {title: string; rating: number}[]): {title: string; rating: number}[] {
-    let ratingBooks = [];
+    let ratingBooks: {title: string; rating: number}[] = [];
     for (const item of items) {
         if (item.rating >= 4) {
             ratingBooks.push(item);
@@ -52,10 +52,10 @@ class Car extends Vehicle {
 
 function processValue(value: string | number): number {
     if (typeof value == "string") {
-        const strLen = value.length;
+        const strLen: number = value.length;
         return strLen;
     } else {
-        const multipliedValue = value * 2;
+        const multipliedValue: number = value * 2;
         return multipliedValue;
     }
 }
@@ -68,8 +68,8 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
     if (products.length === 0) {
         return null;
     } else {
-        let highestPrice = products[0].price;
-        let highestPriceIndx = 0;
+        let highestPrice: number = products[0].price;
+        let highestPriceIndx: number = 0;
         for (let i = 1; i < products.length; i++) {
             if (products[i].price > highestPrice) {
                 highestPriceIndx = i;
